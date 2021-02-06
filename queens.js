@@ -2,7 +2,7 @@
 // this is from the Discrete Mathematics course from Coursera (their code is in Python)
 // it solves the chess board/queens problem from week 2
 // it returns valid combinations for various size chess boards
-// it works fine through size=12 but slows dramatically after that
+// it works fine through size=12 but slows dramatically after that - this is largely the brute force method
 // sample output:
 // [1, 3, 5, 0, 2, 4] "works"
 // [2, 5, 1, 4, 0, 3] "works"

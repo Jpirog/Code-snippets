@@ -56,5 +56,5 @@ const start = Date.now();
 gen_perms([],size)
 console.log("For size ",size,"there are",totSolutions,"solutions")
 
-const endTime = Date.now() - start;
+const endTime = Date.now() - start; 
 console.log(`Elapsed time = ${Math.floor(endTime / 1000)} seconds\n`);

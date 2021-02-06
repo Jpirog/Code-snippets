@@ -32,7 +32,9 @@ const gen_perms = (perm, n) => {
     if (isSolution(perm)){
         totSolutions += 1;
         console.log(perm, "works")
-        // insert a quit() here if only one valid combination is needed
+        // If only one valid combination is needed:
+        // insert throw new Error("Solution found - terminating") for Javascript
+        // insert process.exit() for Node.js
     }
     return
   }

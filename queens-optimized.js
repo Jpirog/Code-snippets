@@ -32,6 +32,8 @@ const gen_perms = (perm, n) => {
     if (isSolution(perm,size)){
         if (n === size) totSolutions += 1;
         //console.log(perm, "works");
+        process.exit()
+
 //        throw new Error("Solution found - terminating")
     }
     return

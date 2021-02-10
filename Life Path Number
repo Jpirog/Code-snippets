@@ -1,0 +1,17 @@
+// Feb 2021
+// Codewars - Life Path number (7 kyu)
+// Did this rather than recursion since there is a max of three levels (9999-12-31)
+
+function lifePathNumber(dateOfBirth) {  
+ return dateOfBirth.replace(/-/g,'').split('')
+                                        .map(x=>+x)
+                                        .reduce((tot,c) => tot += c === '-'?0:c)
+                                        .toString()
+                                        .split('')
+                                        .map(x=>+x)
+                                        .reduce((tot,c) => tot += c === '-'?0:c)
+                                        .toString()
+                                        .split('')
+                                        .map(x=>+x)
+                                        .reduce((tot,c) => tot += c === '-'?0:c)
+}

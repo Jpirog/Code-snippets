@@ -1,6 +1,11 @@
 // Feb 2021
 // Codewars - Life Path number (7 kyu)
 // Did this rather than recursion since there is a max of three levels (9999-12-31)
+// However, this was the optimal solution:
+//   function lifePathNumber(dateOfBirth) {
+//      return dateOfBirth.replace(/\D/g,'') % 9 || 9;
+//   }
+// This person did the math and realized you could just divide the string/number by 9 and the remainder was the answer - far quicker and simpler
 
 function lifePathNumber(dateOfBirth) {  
  return dateOfBirth.replace(/-/g,'').split('')

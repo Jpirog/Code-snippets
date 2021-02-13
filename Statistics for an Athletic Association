@@ -1,0 +1,24 @@
+// Code for Codewars Statistics for an Athletic Association
+// Feb 2021
+
+function stat(strg) {
+  if (strg === "") return "";
+  const reformat = (entry) => {
+    let x=entry.split("|")
+    return parseInt(x[0])*60*60 + parseInt(x[1])*60 + parseInt(x[2])
+  }
+  const fmt = (nbr) =>{
+    let hours=Math.floor(nbr/(60*60)).toString().padStart(2,'0')
+    nbr -= hours * 60 * 60
+    let min=Math.floor(nbr/60).toString().padStart(2,'0')
+    nbr -= min * 60
+    let sec=nbr.toString().padStart(2,'0')
+    return `${hours}|${min}|${sec}`
+  }
+  let arr=strg.split(",").map(c => reformat(c)).sort((a,b) =>  a-b)
+  let range=arr[arr.length-1] - arr[0]
+  let avg=Math.floor(arr.reduce((tot,c) => tot+c,0) / arr.length)
+  let median=arr.length % 2 === 1? arr[Math.floor(arr.length/2)] : Math.floor((arr[arr.length/2] + arr[arr.length/2-1]) / 2)
+
+  return `Range: ${fmt(range)} Average: ${fmt(avg)} Median: ${fmt(median)}`
+}

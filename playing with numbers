@@ -1,0 +1,9 @@
+// Code for Codewars Playing With Digits (kyu=6)
+// Feb 2021
+
+function digPow(n, p){
+  let powerTot=n.toString()
+              .split('')
+              .reduce((tot,c) => tot+c**p++,0)
+  return powerTot % n === 0 ? powerTot / n : -1;     
+}

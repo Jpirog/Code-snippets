@@ -1,0 +1,74 @@
+// Some solutions to Fullstack's pre-bootcamp problems. Only included ones that are more than a few lines:
+// Feb 2021
+
+// Loops and Debugging - 07 Most Vowels - returns the word from a string that has the most vowels
+// At first, started doing a bunch of array methods but it seemed too complicated for a simple operation
+
+const mostVowels = (str) =>{
+  str=str.replace('.','') // quick fix; should probably also check for '?','!', etc.
+  let maxWord=""
+  let maxVowels=0
+  str.split(' ').
+      map(c=>{
+        vowels=0
+        for (let i=0; i < c.length; i++){
+          if (c[i]==='a' || c[i]==='e' || c[i]==='i' || c[i]==='o' || c[i]==='u') vowels++
+        }
+        if (vowels > maxVowels){
+          maxWord=c;
+          maxVowels=vowels;
+        }
+      })
+  return maxWord
+}
+
+// Arrays I - 03 My Last Index Of
+// finding the last value in an array without using lastIndexOf
+
+const myLastIndexOf =(arr,str,start=arr.length)=>{
+  arr = arr.splice(0,start). // adjust the array if there is a starting index
+  arr.reverse()              // reverse it
+  let x = arr.findIndex(c=>c===str) //find the first
+  return x===-1? -1: arr.length - 1 - x  // return
+}
+
+// Arrays II - Even and Odds
+// return all evens in an array and then all odds in an array
+// would be more efficient to do a forEach and loop through the array once and create two arrays
+
+const evenAndOdd=(arr)=>{
+   return [arr.filter(c=>c%2===0),arr.filter(c=>c%2===1)]
+}
+
+//Arrays II - Make Grid
+//Write a function makeGrid that accepts two arguments:
+//numColumns (number), numRows (number)
+//makeGrid should return a two-dimensional array that represents a grid of the given dimensions.
+// I struggle with two dimensional arrays so including some of these here
+
+const makeGrid =(cols,rows)=>{
+  let res=new Array(rows)
+  for (let r=0; r < rows; r++){
+    res[r]=new Array(cols)
+    for (let c=0; c <cols; c++){
+      res[r][c]=c+1
+    }
+  }
+  return res
+}
+
+//Arrays II - remove columns
+//Write a function removeColumns that accepts two arguments//
+//originalGrid (two-dimensional array), numColums (number)
+//removeColumns should return a new grid with the correct number of columns removed.
+
+const removeColumns=(grid,col)=>{
+  for (let i=0; i < grid.length; i++){
+    for (let j=0; j < col; j++){
+      grid[i].pop()
+    }
+  }
+  return grid
+}
+
+

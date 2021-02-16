@@ -87,22 +87,30 @@ const mySlice=(arr,start=0,end=arr.length)=>{
   return res
 }
 
-// Objects - compare objects
-// different approach than their solution, it does work
-// Define a function, compareObjects, that accepts two objects as arguments. compareObjects 
-// should return true if both objects have exactly the same key/value pairs. Otherwise,
-// compareObjects should return false. Assume the objects are not nested.
-
+// Objects - compare objects (completed three different ways)
 const compareObjects=(obj1,obj2)=>{
-  let obj1Exp=Object.entries(obj1).sort((a,b)=>a[0] < b[0])
-  let obj2Exp=Object.entries(obj2).sort((a,b)=>a[0] < b[0])
-  if (obj1Exp.length != obj2Exp.length) return false;
-  for (let i = 0;i < obj1Exp.length; i++){
-    if (obj1Exp[i][0] != obj2Exp[i][0] || obj1Exp[i][1] != obj2Exp[i][1]) {
-      return false;
-      }
+// method 1 - JSON stringify
+//  if (JSON.stringify(obj1) !== JSON.stringify(obj2)) return false;
+//  return true
+  
+// method 2 - compare key/values to each other
+//  let obj1Ent = Object.entries(obj1).sort((a,b)=> a-b)
+//  let obj2Ent = Object.entries(obj2).sort((a,b)=> a-b)
+//  if (obj1Ent.length !== obj2Ent.length) return false;
+//  for (let i=0; i < obj1Ent.length; i++){
+//    if (obj1Ent[i][0] !== obj2Ent[i][0] || obj1Ent[i][1]!==obj2Ent[i][1]) 
+//      return false
+//  }
+//  return true
+  
+// method 3 - loop through each and ensure the same keys and values
+  for (let key in obj1){
+    if (!(key in obj2 && obj1[key] === obj2[key])) return false
   }
-  return true;
+  for (let key in obj2){
+    if (!(key in obj1 && obj2[key] === obj1[key])) return false
+  }
+  return true
 }
 
 // Objects - 03 Leet translator
